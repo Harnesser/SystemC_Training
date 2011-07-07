@@ -37,8 +37,7 @@ int main(int argc, char *argv[] )
 	string q("'");
 	
 	for( unsigned iTC=0; iTC != 7; iTC++ )
-		for( unsigned iNR=1; iNR != 12; iNR++ ) 
-		{
+		for( unsigned iNR=1; iNR != 12; iNR++ ) {
 			cout << "sc_int       " << std::setw(7) << INT[iTC] 
 				 << " output as "   << std::setw(9) << NR[iNR]
 				 << " = "           << std::setw(15) 
