@@ -58,6 +58,24 @@ int main(int argc, char *argv[] )
 				 << std::endl;
 		}
 
+	// Logic stuff
+	sc_lv<8> LV1;
+	LV1 = 15;
+	cout << " LV1= " << LV1;
+	
+	sc_lv<8> LV2("0101xzxz");
+	cout << " LV2= " << LV2;
+	cout << endl;
+	
+	// Fixed-point again
+	sc_fixed<5,3> fix1;
+	fix1 = -3.3;
+	cout << " fix1 = " << fix1;
+	cout << " SC_BIN = " << fix1.to_string(SC_BIN);
+	cout << " SC_HEX = " << fix1.to_string(SC_HEX);
+	cout << " SC_HEX = " << fix1.to_string(SC_HEX, false); // no prefix
+	cout << endl;
+	
 	cout << "INFO: uni_string_rep COMPLETED" << endl;
 	return 0;
 }
