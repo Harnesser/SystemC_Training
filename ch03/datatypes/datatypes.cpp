@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 	unsigned repairs = 0;			// 4 bytes? 
 	unsigned long mileage;			// 4 bytes? WTF?
 	short int speedometer;			// 2 bytes
-	float temperature;				// 4 byte floating point
+	float temperature = 34.5;		// 4 byte floating point
 	double time_of_last_request; 	// 8 byte floating point
 	string license_plate;   
 	
@@ -68,6 +68,27 @@ int main(int argc, char* argv[])
 	
 	cout << "scan chain len = " << setw(10) << scan_chain.length() << endl;
 	cout << "days_SLOC len  = " << setw(10) << days_SLOC.length() << endl;
+	
+	if(alarm)
+		alarm_control = SC_LOGIC_1;
+	else
+		alarm_control = SC_LOGIC_0;
+		
+	// SystemC fixed-point datatypes
+	sc_ufixed<12,7> driver_temp("98.6"); // <word length, integer bits>
+	const sc_fixed_fast<22,3> PI("3.141592654");
+	sc_fix weird_circumference(13,9); // why () now? after?
+	weird_circumference = driver_temp * PI;
+	
+	cout << "sc_ufixed        river_temp = " << setw(15) << driver_temp << endl;
+	cout << "sc_fixed_fast            PI = " << setw(15) << PI << endl;
+	cout << "sc_fix  weird_circumference = " << setw(15) << weird_circumference << endl;
+	
+	// Output all values
+	cout << "obstacle = " << setw(10) << obstacle << endl;
+	cout << "INFO: dataytypes COMPLETED" << endl;
+	
+	return 0;
 	
 	
 	
