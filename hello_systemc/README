@@ -1,0 +1,5 @@
+Toy program on pg 22
+
+Had to make 2 changes:
+1 : Change <systemc> to "systemc.h"
+2 : Add a prefix for the SC_REPORT_INFO
