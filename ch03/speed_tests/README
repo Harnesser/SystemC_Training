@@ -1,0 +1,8 @@
+I'm seeing:
+* c++ native types are the fastest
+* sc_ints are ~x3 slower
+* sc_bigints are ~x12 slower
+* sc_fixed are ~x15 slower
+
+I had to bump up the number of * to get something vaguely measurable.
+

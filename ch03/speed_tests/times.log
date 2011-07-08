@@ -1,0 +1,28 @@
+Fri Jul 8 01:49:17 IST 2011
+Timing: short
+0.04user 0.00system 0:00.04elapsed 97%CPU (0avgtext+0avgdata 4208maxresident)k
+0inputs+0outputs (0major+597minor)pagefaults 0swaps
+Timing: int
+0.05user 0.00system 0:00.06elapsed 98%CPU (0avgtext+0avgdata 4208maxresident)k
+0inputs+0outputs (0major+596minor)pagefaults 0swaps
+Timing: unsigned
+0.04user 0.00system 0:00.05elapsed 92%CPU (0avgtext+0avgdata 4208maxresident)k
+0inputs+0outputs (0major+597minor)pagefaults 0swaps
+Timing: long
+0.04user 0.00system 0:00.04elapsed 100%CPU (0avgtext+0avgdata 4208maxresident)k
+0inputs+0outputs (0major+597minor)pagefaults 0swaps
+Timing: sc_int\<8\>
+0.12user 0.00system 0:00.13elapsed 98%CPU (0avgtext+0avgdata 5104maxresident)k
+0inputs+0outputs (0major+652minor)pagefaults 0swaps
+Timing: sc_uint\<19\>
+0.12user 0.00system 0:00.12elapsed 100%CPU (0avgtext+0avgdata 5200maxresident)k
+0inputs+0outputs (0major+659minor)pagefaults 0swaps
+Timing: sc_bigint\<8\>
+0.58user 0.00system 0:00.61elapsed 96%CPU (0avgtext+0avgdata 5072maxresident)k
+0inputs+0outputs (0major+651minor)pagefaults 0swaps
+Timing: sc_bigint\<100\>
+0.62user 0.00system 0:00.64elapsed 97%CPU (0avgtext+0avgdata 5088maxresident)k
+0inputs+0outputs (0major+652minor)pagefaults 0swaps
+Timing: sc_fixed\<12\,12\>
+1.14user 0.00system 0:01.17elapsed 98%CPU (0avgtext+0avgdata 4944maxresident)k
+0inputs+0outputs (0major+643minor)pagefaults 0swaps

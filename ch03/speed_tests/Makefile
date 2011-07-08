@@ -3,7 +3,7 @@ SYSC_HOME := /usr/local/src/systemc-2.2.0
 TARGET := speed_tests
 ST_DATATYPE := short
 
-all: $(TARGET).out run
+all: clean $(TARGET).out run
 
 $(TARGET).out : $(TARGET).cpp
 	g++ \
@@ -17,6 +17,9 @@ $(TARGET).out : $(TARGET).cpp
 		$(TARGET).cpp \
 		-lsystemc \
 		-lm
+
+clean:
+	\rm -rf $(TARGET).out
 
 run:
 	./$(TARGET).out
