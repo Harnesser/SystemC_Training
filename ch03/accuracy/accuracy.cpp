@@ -30,13 +30,13 @@ double amp_2 = 22;
 double freq_2 = 2.5 * freq_1;
 double t_delta = ( 1.0 / freq_1 ) / NUM_POINTS;
 
-double wave_1[NUM_POINTS];
-double wave_2[NUM_POINTS];
-double wave_out[NUM_POINTS];
+sc_fixed<12,6> wave_1[NUM_POINTS];
+sc_fixed<12,6> wave_2[NUM_POINTS];
+sc_fixed<12,6> wave_out[NUM_POINTS];
 
-void gen_wave( double wave[], double freq, double amp);
-void show_wave( double wave[] );
+template <class T> void gen_wave( T wave[], double freq, double amp);
 void write_csv();
+
 
 int main(int argc, char *argv[] )
 {
@@ -50,23 +50,14 @@ int main(int argc, char *argv[] )
 	write_csv();
 }
 
-void gen_wave( double wave[], double amp, double freq)
+
+template <class T> void gen_wave( T wave[], double amp, double freq)
 {
 	for(int i=0; i<NUM_POINTS; i++ ) {
 		wave[i] = amp * sin( 2.0 * M_PI * freq * (t_delta * i ));
 	}
 }
 
-void show_wave( double wave[] )
-{
-	for(int i=0; i<NUM_POINTS; i++ ) {
-		cout << wave[i] << " ";
-		if( i % 30 == 0 ) {
-			cout << endl;
-		}
-	}
-	cout << endl;
-}
 
 void write_csv()
 {
