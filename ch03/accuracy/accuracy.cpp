@@ -13,13 +13,15 @@
  *  I'm thinking of generating the sinewaves using doubles, then
  * converting them to sc_fixed, and printing both out to a file in
  * CSV format so I can have a peek in soffice? Or compute the errors?
- * I'm not 100% sure what I'm to be doing here...
+ * I'm not 100% sure what I'm to be doing here... not sure what
+ * this exercise is getting at.
  */
 
 #define SC_INCLUDE_FX
 #include "systemc.h"
 
 #include <cmath>
+#include <fstream>
 
 #define NUM_POINTS 512
 double amp_1 = 14;
@@ -29,19 +31,23 @@ double freq_2 = 2.5 * freq_1;
 double t_delta = ( 1.0 / freq_1 ) / NUM_POINTS;
 
 double wave_1[NUM_POINTS];
+double wave_2[NUM_POINTS];
+double wave_out[NUM_POINTS];
 
 void gen_wave( double wave[], double freq, double amp);
 void show_wave( double wave[] );
- 
+void write_csv();
+
 int main(int argc, char *argv[] )
 {
-	cout << "Hello!" << endl;
 	gen_wave(wave_1, amp_1, freq_1);
-	show_wave(wave_1);
-	cout << "PI " << M_PI << endl;
-    cout << "PI/2 " << M_PI_2 << endl;
-    cout << "2*PI (not) " << M_2_PI << endl; //nope, it's not...
-
+	gen_wave(wave_2, amp_2, freq_2);
+	
+	for(int i=0; i<NUM_POINTS; i++) {
+		wave_out[i] = wave_1[i] + wave_2[i];
+	}
+	
+	write_csv();
 }
 
 void gen_wave( double wave[], double amp, double freq)
@@ -60,4 +66,14 @@ void show_wave( double wave[] )
 		}
 	}
 	cout << endl;
+}
+
+void write_csv()
+{
+	ofstream outfile("numbers.data");
+	for(int i=0; i<NUM_POINTS; i++ ) {
+		outfile << wave_1[i] << "," 
+			<< wave_2[i] << "," << wave_out[i] << endl;
+	}
+	outfile.close();
 }
