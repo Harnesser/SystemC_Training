@@ -23,8 +23,8 @@ int sc_main(int argc, char* argv[])
     cout << "INFO: short b = " << b << endl;
     cout << "INFO: short c = " << c << endl;
     cout << "INFO: a + b + c = " << a + b + c << " OK" << endl;
-    short ssum = a + b + c;
-    cout << "INFO: a + b + c = ssum = " << ssum << " OOPS" << endl;
+    sc_uint<17> ssum = a + b + c;
+    cout << "INFO: a + b + c = ssum = " << ssum << " OK" << endl;
     int csum = a + b + c;
     cout << "INFO: a + b + c = csum = " << csum << " OK" << endl;
   }
@@ -48,14 +48,15 @@ int sc_main(int argc, char* argv[])
     sc_int<64> h("0x7000000000000000");
     sc_int<64> i("0x7000000000000000");
     sc_bigint<70> bigsum;
-    cout << "INFO: sc_int<3> g = " << g << endl;
-    cout << "INFO: sc_int<5> h = " << h << endl;
-    cout << "INFO: sc_int<5> i = " << i << endl;
-    cout << "INFO: g + h + i = " << g + h + i << " OOPS" << endl;
+    cout << "INFO: sc_int<64> g       = " << g << endl;
+    cout << "INFO: sc_int<64> h       = " << h << endl;
+    cout << "INFO: sc_int<64> i       = " << i << endl;
+    cout << "INFO: g + h + i          = " << g + h + i << " OOPS" << endl;
+    // looks like sc_ints are not automatically cast to bigint...
     bigsum = g + h + i;
     cout << "INFO: g + h + i = bigsum = " << bigsum << " OOPS" << endl;
     bigsum = sc_bigint<70>(g) + h + i;
-    cout << "INFO: g + h + i = bigsum = " << bigsum << " OK" << endl;
+    cout << "INFO: g + h + i = bigsum = " << bigsum << " OK (needs explicit cast)" << endl;
   }
   //
   cout << std::string(40,'-') << endl;
