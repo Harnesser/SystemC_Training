@@ -16,9 +16,9 @@ two_processes::two_processes(sc_module_name name)
 void two_processes::wiper_thread(void)
 {
     while(true) {
-        cout << "\\\\" << endl;        
+        cout << sc_time_stamp() << " \\\\" << endl;        
         wait(500, SC_MS);
-        cout << "//" << endl;
+        cout << sc_time_stamp() << " //" << endl;
         wait(500, SC_MS); 
     }
 };
@@ -26,7 +26,7 @@ void two_processes::wiper_thread(void)
 void two_processes::blinker_thread(void)
 {
     while(true) {
-        cout << "*" << endl;
+        cout << sc_time_stamp() << " *" << endl;
         wait(300, SC_MS);
     }
 };
